@@ -19,14 +19,14 @@ class LLMService:
             self.client = AsyncOpenAI(
                 base_url=base_url,
                 api_key=api_key)
-        self.model = os.environ.get("OPENAI_MODEL", "gpt-5-mini")
+        self.model = os.environ.get("OPENAI_MODEL", "gpt-oss:20b")
 
         self.pricing = {
             "gpt-5": {"input": 1.25, "output": 10.0},
             "gpt-5-mini": {"input": 0.25, "output": 2.0},
         }
 
-    def calculate_cost(self, usage_data, model="gpt-5-mini"):
+    def calculate_cost(self, usage_data, model="gpt-oss:20b"):
         print(usage_data)
         """Calculate cost based on token usage"""
         if not usage_data or model not in self.pricing:
@@ -104,7 +104,7 @@ class LLMService:
 
         try:
             response = await self.client.chat.completions.create(
-                model="gpt-5",
+                model="gpt-oss:20b",
                 messages=[{"role": "user", "content": prompt}],
             )
 
@@ -276,7 +276,7 @@ class LLMService:
         relevant_pages: List[Dict[str, Any]],
         question: str,
         chat_history: List[Dict[str, Any]] = None,
-        model: str = "gpt-5-mini",
+        model: str = "gpt-oss:20b",
     ):
         """Generate final answer using all relevant pages with streaming"""
 
