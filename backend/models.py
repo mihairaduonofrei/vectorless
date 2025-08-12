@@ -26,7 +26,7 @@ class ChatRequest(BaseModel):
     documents: List[DocumentData]  # Documents sent from client
     description: str  # Collection description
     chat_history: Optional[List[ChatMessage]] = []
-    model: Optional[str] = "gpt-5-mini"
+    model: Optional[str] = "gpt-oss:20b"
 
 
 class ChatResponse(BaseModel):
