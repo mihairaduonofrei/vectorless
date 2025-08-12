@@ -67,7 +67,7 @@ export default function StatelessChatSection({
   const [currentQuestion, setCurrentQuestion] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [showDocuments, setShowDocuments] = useState(true);
-  const [selectedModel, setSelectedModel] = useState<string>('gpt-5-mini');
+  const [selectedModel, setSelectedModel] = useState<string>('gpt-oss:20b');
   const [isEditingDescription, setIsEditingDescription] = useState(false);
   const [editedDescription, setEditedDescription] = useState('');
   const [isUploadingFiles, setIsUploadingFiles] = useState(false);
@@ -880,6 +880,18 @@ export default function StatelessChatSection({
             AI Model:
           </label>
           <div className="flex space-x-4">
+            <label className="flex items-center space-x-2">
+              <input
+                type="radio"
+                name="model"
+                value="gpt-oss:20b"
+                checked={selectedModel === 'gpt-oss:20b'}
+                onChange={(e) => setSelectedModel(e.target.value)}
+                disabled={isLoading}
+                className="text-blue-600 focus:ring-blue-500"
+              />
+              <span className="text-sm text-gray-700">gpt-oss:20b</span>
+            </label>
             <label className="flex items-center space-x-2">
               <input
                 type="radio"
