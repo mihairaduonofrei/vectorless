@@ -11,12 +11,15 @@ load_dotenv()
 class LLMService:
     def __init__(self):
         api_key = os.environ.get("OPENAI_API_KEY")
+        base_url = os.environ.get("OPENAI_BASE_URL")
         if not api_key or api_key == "your_openai_api_key_here":
             print("⚠️  OpenAI API key not set. LLM features will be disabled.")
             self.client = None
         else:
-            self.client = AsyncOpenAI(api_key=api_key)
-        self.model = "gpt-5-mini"
+            self.client = AsyncOpenAI(
+                base_url=base_url,
+                api_key=api_key)
+        self.model = os.environ.get("OPENAI_MODEL", "gpt-5-mini")
 
         self.pricing = {
             "gpt-5": {"input": 1.25, "output": 10.0},
