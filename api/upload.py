@@ -13,9 +13,9 @@ if backend_path not in sys.path:
 from models import UploadResponse, DocumentData, DocumentPage
 from pdf_processor import PDFProcessor
 
-# Vercel payload limit is 4.5MB for the entire request
-MAX_PAYLOAD_SIZE = 4.5 * 1024 * 1024  # 4.5MB in bytes
-MAX_FILE_SIZE = 4.5 * 1024 * 1024  # 4.5MB per individual file
+# Vercel payload limit is 400.5MB for the entire request
+MAX_PAYLOAD_SIZE = 400.5 * 1024 * 1024  # 4.5MB in bytes
+MAX_FILE_SIZE = 400.5 * 1024 * 1024  # 4.5MB per individual file
 MAX_TOTAL_FILES = 100  # Keep original limit
 CHUNK_SIZE = 3.5 * 1024 * 1024  # Process in 3.5MB chunks to stay under limit
 
