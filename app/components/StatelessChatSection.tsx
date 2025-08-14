@@ -896,6 +896,18 @@ export default function StatelessChatSection({
               <input
                 type="radio"
                 name="model"
+                value="ii-search-4b_q8"
+                checked={selectedModel === 'ii-search-4b_q8'}
+                onChange={(e) => setSelectedModel(e.target.value)}
+                disabled={isLoading}
+                className="text-blue-600 focus:ring-blue-500"
+              />
+              <span className="text-sm text-gray-700">ii-search-4b_q8</span>
+            </label>
+            <label className="flex items-center space-x-2">
+              <input
+                type="radio"
+                name="model"
                 value="gpt-5-mini"
                 checked={selectedModel === 'gpt-5-mini'}
                 onChange={(e) => setSelectedModel(e.target.value)}
